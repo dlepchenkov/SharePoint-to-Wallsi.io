@@ -1,18 +1,16 @@
 # SharePoint-to-Wallsi.io
 The process of automatically publishing ads from Power App to Walls.io using Power Automate, OneDrive, and a Python script on a virtual machine connected to Azure.
-> Dieses Dokument beschreibt den Prozess der automatischen Posten von Anzeigen aus Power App in [Walls.io](http://walls.io/) unter Verwendung von Power Automate, OneDrive und einem Python-Skript auf einer VM mit Azure-Verbindung.
+Objective: When creating an ad on the bulletin board (Power App), the ad should be automatically published on [Walls.io](http://walls.io/).
 
-Ziel: Beim Erstellen einer Anzeige in schwarzess Brett (Power App) soll eine automatische Veröffentlichung der Anzeige auf [Walls.io](http://walls.io/) erfolgen. 
-
-So Sieht’s aus:
-1. User erstellt eine Anzeige im Schwarzess Brett (Microsoft Power App) 
-2. Anzeige ist automatisch im SharePoint List gespeichert
-3. Power Automate Flow ist automatisch von Anzeige im List getriggert
-4. Mit “Get attachments” sammelt attachments aus diese Anzeige
-5. Mit “Get attachment content” und eine spezielle Formula (s. Foto) in file identifier wird nur das erstes Bild extrahiert
-6. Erstellt “.png” File im OneDrive, im File Content ändert den Inhalt von Bits in Binärcode.
-7. Erstellt eine .txt-Datei in OneDrive mit dem gewünschten Textinhalt aus Anzeige
-8. Files befinden sich in eine OneDrive Directory
-9. Python Script befindet sich in eine Windows VM. Um es Zugriff zu Onedrive zu geben, wird es mit dem Azure Verbunden. 
-Logik des Skripts: Mithilfe von Azure Connection überprüft der Code zunächst den Ordner in OneDrive auf Dateien, deren Namen noch nicht in der CSV-Datei vorhanden sind. Er kompiliert die Daten und postet sie auf [Walls.io](http://walls.io/). 
-10. Anzeige wird auf [Walls.io](http://Walls.io) gepostet
+Here's how it works:
+1. User creates an ad on the bulletin board (Microsoft Power App)
+2. Ad is automatically saved in the SharePoint list
+3. Power Automate Flow is automatically triggered by the notice in the list.
+4. “Get attachments” collects attachments from this notice.
+5. “Get attachment content” and a special formula in file identifier extract only the first image.
+6. Creates a “.png” file in OneDrive, changes the content of bits in binary code in File Content.
+7. Creates a .txt file in OneDrive with the desired text content from the display
+8. Files are located in a OneDrive directory
+9. Python script is located in a Windows VM. To give it access to OneDrive, it is connected to Azure.  (see the .py file in branch)
+Logic of the script: Using Azure Connection, the code first checks the folder in OneDrive for files whose names are not yet in the CSV file. It compiles the data and posts it to [Walls.io]. 
+10. Display is posted to [Walls.io]
